@@ -1,5 +1,5 @@
 # shocon
-Pure-Scala implementation of HOCON, suitable for cross-platform use
+Pure-Scala implementation of [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.md), suitable for cross-platform use
 
 ## Usage
 
