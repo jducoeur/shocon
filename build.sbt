@@ -13,6 +13,7 @@ lazy val root = project.in(file(".")).
 lazy val shocon = crossProject.in(file(".")).
   settings(
     name := "shocon",
+    organization := "org.querki",
     version := "0.1-SNAPSHOT",
     scalaVersion := "2.11.7",
     libraryDependencies += "com.lihaoyi" %%% "fastparse" % "0.2.1"

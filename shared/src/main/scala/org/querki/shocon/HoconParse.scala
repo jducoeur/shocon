@@ -69,7 +69,9 @@ object HoconParse {
     topP.parse(text) match {
       case Success(ov, _) => ov
       // TODO: add better failure reporting. Once we upgrade to FastParse 0.3.1, use the new fields in Failure.
-      case Failure(parser, index) => throw new Exception(s"Failed to parse in $parser at $index")
+      case Failure(parser, index) => {
+        throw new Exception(s"Failed to parse in $parser at $index")
+      }
     }
   }
 }
