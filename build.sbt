@@ -14,34 +14,31 @@ lazy val shocon = crossProject.in(file(".")).
   settings(
     name := "shocon",
     organization := "org.querki",
-    version := "0.1-SNAPSHOT",
+    version := "0.2",
     scalaVersion := "2.11.7",
-    libraryDependencies += "com.lihaoyi" %%% "fastparse" % "0.2.1"
+    libraryDependencies += "com.lihaoyi" %%% "fastparse" % "0.2.1",
+    publishTo := {
+	  val nexus = "https://oss.sonatype.org/"
+	  if (isSnapshot.value)
+	    Some("snapshots" at nexus + "content/repositories/snapshots")
+	  else
+	    Some("releases" at nexus + "service/local/staging/deploy/maven2")
+	}
   )
 
 lazy val shoconJS = shocon.js
 lazy val shoconJVM = shocon.jvm
-
-organization := "org.querki"
 
 homepage := Some(url("http://www.querki.net/"))
 
 licenses += ("MIT License", url("http://www.opensource.org/licenses/mit-license.php"))
 
 scmInfo := Some(ScmInfo(
-    url("https://github.com/jducoeur/shocon"),
-    "scm:git:git@github.com/jducoeur/shocon.git",
-    Some("scm:git:git@github.com/jducoeur/shocon.git")))
+  url("https://github.com/jducoeur/shocon"),
+  "scm:git:git@github.com/jducoeur/shocon.git",
+  Some("scm:git:git@github.com/jducoeur/shocon.git")))
 
 publishMavenStyle := true
-
-publishTo := {
-  val nexus = "https://oss.sonatype.org/"
-  if (isSnapshot.value)
-    Some("snapshots" at nexus + "content/repositories/snapshots")
-  else
-    Some("releases" at nexus + "service/local/staging/deploy/maven2")
-}
 
 pomExtra := (
   <developers>
@@ -54,3 +51,4 @@ pomExtra := (
 )
 
 pomIncludeRepository := { _ => false }
+    
