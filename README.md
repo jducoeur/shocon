@@ -5,7 +5,7 @@ Pure-Scala implementation of [HOCON](https://github.com/typesafehub/config/blob/
 
 Include the following in your sbt file:
 ```
-"org.querki" %%% "shocon" % "0.2"
+"org.querki" %%% "shocon" % "0.3"
 ```
 Note that this has some fairly old dependencies at the moment, mainly because Querki is a bit behind the times. Those will be updated in due course. (The lack of unit tests is a consequence of this -- once it is updated enough to use ScalaTest.JS, we can do that properly.)
 
