@@ -1,7 +1,3 @@
-import SonatypeKeys._
-
-sonatypeSettings
-
 def preventPublication(p: Project) =
   p.settings(
     publish :=(),
@@ -20,8 +16,8 @@ lazy val shocon = crossProject.in(file(".")).
   settings(
     name := "shocon",
     organization := "org.querki",
-    version := "0.2",
-    scalaVersion := "2.11.7",
+    version := "0.3",
+    scalaVersion := "2.11.8",
     libraryDependencies += "com.lihaoyi" %%% "fastparse" % "0.2.1",
     
     publishTo := {
