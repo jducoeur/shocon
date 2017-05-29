@@ -5,7 +5,7 @@ Pure-Scala implementation of [HOCON](https://github.com/typesafehub/config/blob/
 
 Include the following in your sbt file:
 ```
-"org.querki" %%% "shocon" % "0.3"
+"org.querki" %%% "shocon" % "0.4"
 ```
 Note that this has some fairly old dependencies at the moment, mainly because Querki is a bit behind the times. Those will be updated in due course. (The lack of unit tests is a consequence of this -- once it is updated enough to use ScalaTest.JS, we can do that properly.)
 
@@ -18,3 +18,7 @@ As it says, as of this writing this is only a beginning. This library doesn't ha
 This is not yet attempting to be a full-fledged config system: this library doesn't yet have any semantics for what to *do* with this file, it just produces a simple tree of the contents. We may eventually want to make this richer, but that will require a lot of discussion about, eg, what it means to "include" another file when we're interpreting this client-side. I suspect that the parser will need to be embedded in some richer factories, with JS and JVM implementations.
 
 Under the hood, this is based on FastParse, so it is expected to run reasonably quickly.
+
+## Release Notes
+
+* **0.4** -- discovered that we weren't using FastParse *well*, and Shocon was running idiotically slowly. Added some cuts, and switched to using FP's built-in character type recognizers, which appears to have sped things up by over 80%. (Querki's config file parse improved from over 2.5 seconds to under 500ms.)
